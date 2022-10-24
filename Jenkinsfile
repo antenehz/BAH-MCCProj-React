@@ -5,11 +5,11 @@ node {
     }
     
     stage ("Install dependencies - React Client") {
-        bat 'npm install'
+        'npm install'
     }
     
     stage ("Launch - React Client") {
-        bat 'npm start'
+        'npm start'
     }
 }
     
