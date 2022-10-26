@@ -1,15 +1,15 @@
 node {
     
     stage ("Checkout React Client"){
-        git branch: 'main', url: 'https://github.com/foxwas/sept26-bah-mcc-react.git'
+        git branch: 'main', url: 'https://github.com/abarbuzza/BAH-MCCProj-React.git'
     }
     
     stage ("Install dependencies - React Client") {
-        bat 'npm install'
+        'npm install'
     }
     
     stage ("Launch - React Client") {
-        bat 'npm start'
+        'npm start'
     }
 }
     
