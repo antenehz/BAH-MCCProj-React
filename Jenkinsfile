@@ -5,7 +5,7 @@ node {
     }
     
     stage ("Install dependencies - React Client") {
-        'npm install'
+        sh 'npm install'
     }
     
     stage ("Containerize the app-docker build") {
@@ -18,6 +18,7 @@ node {
     }
     
     stage ("Run Docker container instance"){
+	sh "docker stop event-reactclient"
         sh "docker run -d --rm --name event-reactclient -p 3000:3000 event-reactclient:v1.0"
     }
     
@@ -29,6 +30,8 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Deploy to Kubenetes cluster') {
+	      sh "kubectl delete service event-reactclient"
+	      sh "kubectl delete deployment event-reactclient"
 	      sh "kubectl create deployment event-reactclient --image=event-reactclient:v1.0"
 	      sh "kubectl expose deployment event-reactclient --type=LoadBalancer --port=80"
 	    }
