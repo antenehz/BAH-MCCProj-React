@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-set NODE_OPTIONS=--openssl-legacy-provider
+export NODE_OPTIONS=--openssl-legacy-provider
 
 ### `npm start`
 
